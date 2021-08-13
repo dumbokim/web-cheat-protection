@@ -15,8 +15,12 @@ function App() {
 
   return (
     <div className="App">
-      <video autoPlay ref={videoRef} />
-      <button onClick={startVideo}>start</button>
+      <div>
+        <video autoPlay ref={videoRef} />
+      </div>
+      <div>
+        <button onClick={startVideo}>start</button>
+      </div>
     </div>
   );
 }
