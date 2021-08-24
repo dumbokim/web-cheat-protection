@@ -1,31 +1,20 @@
 import React, { useRef, useEffect } from "react";
 import "./App.css";
-
-const CONSTRAINTS = { video: true };
+import Video from "./components/Video";
+import Timer from "./components/Timer";
+import PdfView from "./components/PdfView";
+import Answers from "./components/Answers";
 
 function App() {
-  const videoRef = useRef(null);
-
-  // const startVideo = async () => {
-  //   const stream = await navigator.mediaDevices.getUserMedia(CONSTRAINTS);
-  //   if (videoRef && videoRef.current && !videoRef.current.srcObject) {
-  //     videoRef.current.srcObject = stream;
-  //   }
-  // };
-
-  useEffect(() => {
-    (async () => {
-      videoRef.current.srcObject = await navigator.mediaDevices.getUserMedia(CONSTRAINTS)
-    })();
-  }, [])
-
   return (
     <div className="App">
-      <div id='video_wrapper'>
-        <video autoPlay ref={videoRef} />
-      </div>
-      <div>
-        자동으로 카메라가 켜짐
+      <Video />
+      <div id="content_container">
+        <div>
+          <Timer />
+          <PdfView />
+        </div>
+        <Answers />
       </div>
     </div>
   );
